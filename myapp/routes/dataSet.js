@@ -4,6 +4,7 @@ var dbUtil = require("../dbConfig");
 var passport = require("passport");
 
 var db = new dbUtil();
+var empNo = 10001;
 
 router.get('/', function(req, res, next) {
     passport.authenticate('jwt', {session: false}, (err, user, info) => {
@@ -20,8 +21,13 @@ router.get('/', function(req, res, next) {
                 res.send(data);
             });
         }
+        else if (user.permit === 'manager'){
+            db.fetchData("select * from employees limit 100", function(data) {
+                res.send(data);
+            });
+        }
         else {
-            db.fetchData("select * from departments", function(data) {
+            db.fetchData("select * from employees limit 10", function(data) {
                 res.send(data);
             });
         }

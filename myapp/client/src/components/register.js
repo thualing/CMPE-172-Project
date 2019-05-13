@@ -3,12 +3,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
+import GoogleLogin from "react-google-login";
 class register extends Component {
     constructor(props){
         super(props);
         this.state={
             email:'',
             password:''
+        }
+        if (localStorage.getItem('token') !== '') {
+            this.props.history.push('/dashboard');
         }
     }
 
@@ -26,15 +30,22 @@ class register extends Component {
                 console.log(response);
                 if (response.status === 200) {
                     console.log("registration successfull");
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('permit', response.data.user.permit);
                     oThis.props.history.push('/dashboard');
+                    window.location.reload();
                 }
-                else if(response.status === 204){
-                    console.log("Account already exist");
-                    alert("Account already exist");
+                // else if(response.status === 204){
+                //     console.log("Account already exist");
+                //     alert("Account already exist");
+                // }
+                else {
+                    console.log("account exist");
                 }
             })
             .catch(function (error) {
                 console.log(error);
+                alert("Account with this email already exist or invalid email/password");
             });
     }
 

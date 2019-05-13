@@ -17,7 +17,7 @@ class SignIn extends Component {
   }
 
   async onSubmit(formData) {
-    await this.props.localSignIn(formData);
+    await this.props.signIn(formData);
     if (!this.props.errorMessage) {
       this.props.history.push('/dashboard');
     }

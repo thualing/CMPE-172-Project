@@ -32,8 +32,8 @@ class Home extends Component {
         return (
             <div>
                 <p><font size="15">Welcome to CodeMan Payroll System!</font></p>
-                <button className='btn btn-primary' onClick={this.handleClick}>Click Me</button>
-                <div>{ this.state.showMessage && (<div>{this.state.username}</div>) }</div>
+                {/*<button className='btn btn-primary' onClick={this.handleClick}>Click Me</button>*/}
+                {/*<div>{ this.state.showMessage && (<div>{this.state.username}</div>) }</div>*/}
             </div>
         )
     }
