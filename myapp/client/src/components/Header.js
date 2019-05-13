@@ -36,9 +36,7 @@ class Header extends Component {
                     </ul>
                     <ul className="nav navbar-nav ml-auto">
                         {!this.isAuth() ?
-                            [<li className="nav-item" key="register">
-                                <Link className="nav-link" to="/register">Sign Up</Link>
-                            </li>,
+                           [
                                 <li className="nav-item" key="login">
                                     <Link className="nav-link" to="/login">Log In</Link>
                                 </li>
