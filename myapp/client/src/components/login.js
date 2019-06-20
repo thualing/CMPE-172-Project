@@ -83,7 +83,7 @@ class login extends Component {
                 <RaisedButton label="Login" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
              </div>
                  <GoogleLogin
-                     clientId="674151268871-u6gkhhba4ho97pv2d4hjnh3b1l9nb2ob.apps.googleusercontent.com"
+                     clientId="someID"
                      buttonText="Google"
                      onSuccess={this.responseGoogle}
                      onFailure={this.responseGoogle}
